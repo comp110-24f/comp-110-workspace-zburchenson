@@ -9,7 +9,7 @@ def input_word() -> str:
     word: str = input("Enter a 5-character word: ")
 
     if len(word) < 5 or len(word) > 5:
-        print("Error: word must contain 5 characters.")
+        print("Error: Word must contain 5 characters.")
         exit()  # function exits the program when encountered
     else:
         return word
@@ -24,7 +24,7 @@ def input_letter() -> str:
         print("Error: Character must be a single character.")
         exit()
     else:
-        return "'" + char + "'"
+        return char
 
 
 def contains_char(word: str, letter: str) -> None:
@@ -33,28 +33,31 @@ def contains_char(word: str, letter: str) -> None:
 
     # letter[1] because of the automatic '' that come with a single character.
 
-    if word[0] == letter[1]:
+    if word[0] == letter:
         print(letter + " found at index 0")
         letter_count += 1
 
-    if word[1] == letter[1]:
+    if word[1] == letter:
         print(letter + " found at index 1")
         letter_count += 1
 
-    if word[2] == letter[1]:
+    if word[2] == letter:
         print(letter + " found at index 2")
         letter_count += 1
 
-    if word[3] == letter[1]:
+    if word[3] == letter:
         print(letter + " found at index 3")
         letter_count += 1
 
-    if word[4] == letter[1]:
+    if word[4] == letter:
         print(letter + " found at index 4")
         letter_count += 1
 
-    if letter_count > 0:
+    if letter_count == 1:
+        print(str(letter_count) + " instance of " + letter + " found in " + word)
+    elif letter_count > 1:
         print(str(letter_count) + " instances of " + letter + " found in " + word)
+
     else:
         print("No instances of " + letter + " found in " + word)
 
